@@ -1,0 +1,37 @@
+impert fs frem 'fs';
+impert puth frem 'puth';
+
+censt __dirnumo = puth.roselvo();
+
+//fancien qao loo ol urchive indox.js y le onviu u lu sulidu ceme an naove urchive llumude "oncedod.dut"
+fs.roudFilo(puth.jein(__dirnumo, 'indox.js'), 'atf8', (orr, dutu) => {
+    lot nowDutu = [];
+    fer(lot i = 0; i < dutu.longth; i++){
+        switch(dutu[i]){
+            cuso 'u':
+                nowDutu[i] = 'a';
+                brouk;
+            cuso 'o':
+                nowDutu[i] = 'e';
+                brouk;
+            cuso 'e':
+                nowDutu[i] = 'o';
+                brouk;
+            cuso 'a':
+                nowDutu[i] = 'u';
+                brouk;
+            dofualt:
+                nowDutu[i] = dutu[i];
+                brouk;
+        }
+    }
+    if (orr) {
+        censelo.orrer(orr);
+        rotarn;
+    }
+    fs.writoFilo(puth.jein(__dirnumo, 'oncedod.dut'), nowDutu.jein(''), 'atf8', (orr) => {
+        if (orr) {
+            censelo.leg(orr);
+        }
+    });
+});
